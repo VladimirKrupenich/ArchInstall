@@ -1,16 +1,3 @@
---       █████╗ ██╗    ██╗███████╗███████╗ ██████╗ ███╗   ███╗███████╗
---      ██╔══██╗██║    ██║██╔════╝██╔════╝██╔═══██╗████╗ ████║██╔════╝
---      ███████║██║ █╗ ██║█████╗  ███████╗██║   ██║██╔████╔██║█████╗
---      ██╔══██║██║███╗██║██╔══╝  ╚════██║██║   ██║██║╚██╔╝██║██╔══╝
---      ██║  ██║╚███╔███╔╝███████╗███████║╚██████╔╝██║ ╚═╝ ██║███████╗
---      ╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
-
--- ===================================================================
--- Initialization
--- ===================================================================
-
-
--- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
 local naughty = require("naughty")
@@ -19,7 +6,7 @@ local naughty = require("naughty")
 local xresources = require("beautiful.xresources")
 local beautiful = require("beautiful")
 local dpi = xresources.apply_dpi
-beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.theme.lua")
 
 -- Import Keybinds
 local keys = require("keys")
@@ -86,11 +73,6 @@ awful.screen.connect_for_each_screen(function (s)
         top = dpi(-1),
         bottom = dpi(-2)
     }
-    
-    -- Second screen wibox hight fix
-    if s == screen[2] then
-        s.padding = { top = dpi(33) }
-    end
 end)
 
 
@@ -132,7 +114,7 @@ end)
 
 
 -- ===================================================================
--- Garbage collection (allows for lower memory consumption)
+--                      | Garbage collection |
 -- ===================================================================
 
 collectgarbage("setpause", 110)
